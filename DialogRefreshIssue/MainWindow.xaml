@@ -1,0 +1,22 @@
+﻿<mahApps:MetroWindow x:Class="DialogRefreshIssue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mahApps="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"      
+        TextElement.FontSize="13"
+        TextElement.Foreground="{StaticResource MaterialDesignBody}"
+        Background="{StaticResource MaterialDesignPaper}"
+        FontFamily="{StaticResource MaterialDesignFont}"
+        GlowBrush="{StaticResource AccentColorBrush}"    
+        Height="600" Width="800">
+    <Grid>
+        <Button Margin="16" VerticalAlignment="Top" Click="ButtonTest_Click">Test Progress</Button>
+        <materialDesign:DialogHost VerticalAlignment="Bottom" IsOpen="{Binding IsInitializing}" DialogContent="{Binding ProgressInitialization}" Margin="16">
+            <Grid>
+                <materialDesign:Card HorizontalAlignment="Stretch" Height="400">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Card</TextBlock>
+                </materialDesign:Card>
+            </Grid>
+        </materialDesign:DialogHost>
+    </Grid>
+</mahApps:MetroWindow>
