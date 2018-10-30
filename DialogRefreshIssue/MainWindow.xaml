@@ -10,8 +10,12 @@
         GlowBrush="{StaticResource AccentColorBrush}"    
         Height="600" Width="800">
     <Grid>
-        <Button Margin="16" VerticalAlignment="Top" Click="ButtonTest_Click">Test Progress</Button>
-        <materialDesign:DialogHost VerticalAlignment="Bottom" IsOpen="{Binding IsInitializing}" DialogContent="{Binding ProgressInitialization}" Margin="16">
+        <StackPanel Orientation="Horizontal" Margin="16" VerticalAlignment="Top">
+            <Button Click="ButtonTestProgress_Click">Test Progress</Button>
+            <Button Click="ButtonTestInfo_Click" Margin="16,0,0,0">Test Dialog</Button>
+            <Button Click="ButtonTestDataEntry_Click" Margin="16,0,0,0">Test Data Entry</Button>
+        </StackPanel>
+        <materialDesign:DialogHost VerticalAlignment="Bottom" IsOpen="{Binding IsShow}" DialogContent="{Binding DialogObject}" Margin="16">
             <Grid>
                 <materialDesign:Card HorizontalAlignment="Stretch" Height="400">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Card</TextBlock>

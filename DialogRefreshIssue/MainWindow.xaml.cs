@@ -8,21 +8,21 @@ namespace DialogRefreshIssue
 {
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
-        private bool m_isInitializing;
-        public bool IsInitializing
+        private bool m_isShow;
+        public bool IsShow
         {
-            get { return m_isInitializing; }
-            set { m_isInitializing = value; OnPropertyChanged(); }
+            get { return m_isShow; }
+            set { m_isShow = value; OnPropertyChanged(); }
         }
 
-        private object m_progressInitialization;
-        public object ProgressInitialization
+        private object m_dialogObject;
+        public object DialogObject
         {
-            get { return m_progressInitialization; }
+            get { return m_dialogObject; }
             set
             {
-                if (m_progressInitialization == value) return;
-                m_progressInitialization = value; OnPropertyChanged();
+                if (m_dialogObject == value) return;
+                m_dialogObject = value; OnPropertyChanged();
             }
         }
 
@@ -37,13 +37,23 @@ namespace DialogRefreshIssue
         {
             InitializeComponent();
             DataContext = this;
-
-            ProgressInitialization = new ProgressDialog("Initializing...");
         }
 
-        private void ButtonTest_Click(object sender, RoutedEventArgs e)
+        private void ButtonTestProgress_Click(object sender, RoutedEventArgs e)
         {
-            IsInitializing = !IsInitializing;
+            DialogObject = new DialogProgress("Initializing...");
+            IsShow = !IsShow;
+        }
+        private void ButtonTestInfo_Click(object sender, RoutedEventArgs e)
+        {
+            DialogObject = new DialogInformation("Exception initializing.", "Initialization");
+            IsShow = !IsShow;
+        }
+
+        private void ButtonTestDataEntry_Click(object sender, RoutedEventArgs e)
+        {
+            DialogObject = new DialogDataEntry("Standby current", "Enter Standby current.");
+            IsShow = !IsShow;
         }
     }
 }

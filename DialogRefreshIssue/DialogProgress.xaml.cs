@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace DialogRefreshIssue
 {
-    public partial class ProgressDialog : UserControl
+    public partial class DialogProgress : UserControl
     {
         private string m_progressTitle;
         public string ProgressTitle
@@ -20,7 +20,7 @@ namespace DialogRefreshIssue
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ProgressDialog(string title)
+        public DialogProgress(string title)
         {
             InitializeComponent();
 

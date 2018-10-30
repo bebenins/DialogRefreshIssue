@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="DialogRefreshIssue.DialogDataEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" x:Name="Title" Style="{StaticResource MaterialDesignTitleTextBlock}"/>
+        <TextBlock Grid.Row="1" x:Name="Description" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
+        <TextBox Grid.Row="2" x:Name="EnteredData" Margin="0,16,0,0"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,16,0,0">
+            <Button x:Name="ButtonTrue" IsDefault="True" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+            <Button x:Name="ButtonFalse" IsCancel="True" Margin="8,0,0,0" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
